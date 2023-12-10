@@ -5,6 +5,7 @@ import Courses from '../Components/Courses/Courses';
 import Blogs from '../Components/Blogs/Blogs';
 import Faq from '../Components/Faq/Faq';
 import Register from '../Contexts/Register/Register';
+import Login from '../Contexts/Login/Login';
 
 const Routes = () => {
 
@@ -15,6 +16,7 @@ const Routes = () => {
         {path: 'faq', element: <Faq></Faq>},
         {path: 'blogs', element: <Blogs></Blogs>},
         {path: 'register', element: <Register></Register>},
+        {path: 'login', element: <Login></Login>},
     ]}
     ])
     return (
