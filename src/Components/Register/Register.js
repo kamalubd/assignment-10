@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import registerJpg from '../../Assets/register.jpg'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider/Authprovider';
 
 const Register = () => {
+
+  const {singInWithEmail} = useContext(AuthContext);
+  
+  const userSingUp = event => {
+    event.preventDefault()
+    const form = event.target.form;
+    const email = form[1].value;
+    const password = form[2].value;
+    console.log(email, password);
+     
+    singInWithEmail(email, password)
+    .then (result => console.log (result.user))
+    .catch(error => console.error(error))
+
+  }
+
     return (
     <div className='alignment'>
         <div className="hero min-h-screen bg-base-200">
@@ -35,7 +52,7 @@ const Register = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button onClick={userSingUp} className="btn btn-primary">Register</button>
         </div>
       </form>
     </div>
